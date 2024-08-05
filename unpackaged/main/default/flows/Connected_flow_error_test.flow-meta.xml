@@ -14,7 +14,7 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Second_node</targetReference>
+            <targetReference>Non-existent-node</targetReference>
         </connector>
     </assignments>
     <assignments>
