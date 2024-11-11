@@ -20,6 +20,6 @@ describe('c-test-runner-component', () => {
 
         // Assert
         const paragraph = element.shadowRoot.querySelector('p');
-        expect(paragraph.textContent).toBe('Fantasic');
+        expect(paragraph.textContent).toBe('Fantastic');
     });
 });
