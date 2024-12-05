@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <decisions>
+        <description>Checks if the contact has Steve in their name</description>
+        <name>Are_they_called_Steve</name>
+        <label>Are they called Steve</label>
+        <locationX>446</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Called_Steve</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Steve</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.LastName</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <stringValue>Steve</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Call_them_Steve2</targetReference>
+            </connector>
+            <label>Called Steve</label>
+        </rules>
+        <rules>
+            <name>Called_Bruce</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Bruce</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Make_them_rockstar</targetReference>
+            </connector>
+            <label>Called Bruce</label>
+        </rules>
+        <rules>
+            <name>Called_Beans</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.FirstName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Beans</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Incrementing_Number</targetReference>
+            </connector>
+            <label>Called Beans</label>
+        </rules>
+    </decisions>
+    <description>Auto updates the name Steve to Steve 2</description>
+    <environments>Default</environments>
+    <interviewLabel>Auto Steve Upgrader {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Auto Steve Upgrader</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Updates the Steve to Steve2</description>
+        <name>Call_them_Steve2</name>
+        <label>Call them Steve2</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <stringValue>Steve2</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <stringValue>Steve2</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Incrementing_Number</name>
+        <label>Incrementing Number</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <stringValue>19</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Make_them_rockstar</name>
+        <label>Make them rockstar</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <stringValue>Springsteen</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Are_they_called_Steve</targetReference>
+        </connector>
+        <object>Contact</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
