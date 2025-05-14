@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
     <assignments>
@@ -13,6 +12,7 @@
                 <stringValue>John pork</stringValue>
             </value>
         </assignmentItems>
+        <description>An assignment element that sets the 'external_variable_in_flow' variable to a fixed string value 'John pork'.</description>
     </assignments>
     <environments>Default</environments>
     <interviewLabel>Flow for Apex dependency {!$Flow.CurrentDateTime}</interviewLabel>
@@ -42,14 +42,21 @@
         <connector>
             <targetReference>Reset_variable</targetReference>
         </connector>
+        <description>Starting point of the flow, initiating execution and connecting to the 'Reset variable' assignment element.</description>
     </start>
     <status>Active</status>
     <variables>
-        <description>Should be passed by an Apex class that uses this flow</description>
+        <description>An input variable that should be passed to the flow by an Apex class invoking this flow. It is a single string and not a collection.</description>
         <name>external_variable_in_flow</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
         <isOutput>false</isOutput>
     </variables>
+    <description>Settings:
+    API version for running the flow. This controls which Salesforce API version is used when executing the flow.
+    Interview label: A dynamic label for the flow runtime instance, including current date and time, useful for tracking and identification.
+    BuilderType process metadata: Metadata indicating the flow was built using the Lightning Flow Builder.
+    CanvasMode process metadata: Metadata indicating the flow uses an automatic layout canvas mode.
+    OriginBuilderType process metadata: Metadata indicating the original builder type was Lightning Flow Builder.</description>
 </Flow>
