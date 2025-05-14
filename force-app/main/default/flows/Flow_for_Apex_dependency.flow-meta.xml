@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>63.0</apiVersion>
     <assignments>
@@ -13,6 +12,7 @@
                 <stringValue>John pork</stringValue>
             </value>
         </assignmentItems>
+        <description>An assignment element that sets the value of the variable 'external_variable_in_flow' to 'John pork'. It is used to reset or assign this variable within the flow.</description>
     </assignments>
     <environments>Default</environments>
     <interviewLabel>Flow for Apex dependency {!$Flow.CurrentDateTime}</interviewLabel>
@@ -42,6 +42,7 @@
         <connector>
             <targetReference>Reset_variable</targetReference>
         </connector>
+        <description>The entry point of the flow, which begins the flow execution. It is configured to immediately proceed to the 'Reset_variable' assignment element, defining the initial action in the flow's logic sequence.</description>
     </start>
     <status>Active</status>
     <variables>
