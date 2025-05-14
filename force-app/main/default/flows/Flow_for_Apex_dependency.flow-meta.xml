@@ -13,6 +13,7 @@
                 <stringValue>John pork</stringValue>
             </value>
         </assignmentItems>
+        <description>Assigns the string value "John pork" to the flow variable 'external_variable_in_flow'. This logic element modifies flow data during execution.</description>
     </assignments>
     <environments>Default</environments>
     <interviewLabel>Flow for Apex dependency {!$Flow.CurrentDateTime}</interviewLabel>
@@ -42,10 +43,11 @@
         <connector>
             <targetReference>Reset_variable</targetReference>
         </connector>
+        <description>Defines the starting point of the flow and connects to the 'Reset_variable' assignment to initiate the flow actions.</description>
     </start>
     <status>Active</status>
     <variables>
-        <description>Should be passed by an Apex class that uses this flow</description>
+        <description>An input string variable intended to be set externally, typically passed by an Apex class utilizing this flow. It holds data for use within the flow.</description>
         <name>external_variable_in_flow</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
